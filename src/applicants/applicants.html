@@ -1,0 +1,22 @@
+<template>
+  <require from="../styles/applicants.css"></require>
+  <div class="applicants">
+    <h2>Applicant List</h2>
+    <ul class="applicant-list">
+      <li repeat.for="applicant of applicants" class="applicants-item ${applicant.id === $parent.selectedId ? 'active' : ''}">
+        <h3 class="applicants-item-name">${applicant.name} ${applicant.familyName}</h3>
+        <p class="applicants-item-text">Email: ${applicant.emailAddress}</p>
+        <p class="applicants-item-text">Country Of Originr: ${applicant.countryOfOrigin}</p>
+        <a class="applicants-item-edit" route-href="route: ApplicantDetail; params.bind: {id:applicant.id}" click.delegate="$parent.select(applicant)">
+          <i class="fas fa-edit"></i>
+          <small>Edit</small>
+        </a>
+        <a click.delegate="$parent.remove(applicant)" href="#" class="applicants-item-remove">
+          <i class="fas fa-trash"></i>
+          <small>Remove</small>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <a route-href="route: home;" class="applicants-return"><i class="fas fa-chevron-left"></i> Home</a>
+</template>

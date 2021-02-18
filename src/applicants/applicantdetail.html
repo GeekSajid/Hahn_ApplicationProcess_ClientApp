@@ -1,0 +1,62 @@
+<template>
+  <require from="../styles/applicants.css"></require>
+  <require from="../styles/applicantdetail.css"></require>
+  <div class="applicants">
+    <h2>Profile</h2>
+    <form role="form" class="applicants-form">
+      <div class="applicants-form-item">
+        <label for="Name">First Name
+          <input type="text" class="form-control" id="Name" value.bind="activeApplicant.name & validate">
+        </label>
+      </div>
+
+      <div class="applicants-form-item">
+        <label for="FamilyName">Family Name
+          <input type="text" class="form-control" id="FamilyName" value.bind="activeApplicant.familyName & validate">
+        </label>
+      </div>
+
+      <div class="applicants-form-item">
+        <label for="EmailAddress">Email
+          <input type="text" class="form-control" id="EmailAddress" value.bind="activeApplicant.emailAddress & validate">
+        </label>
+      </div>
+
+      <div class="applicants-form-item">
+        <label for="Address">Address
+          <input type="text" class="form-control" id="Address" value.bind="activeApplicant.address & validate">
+        </label>
+      </div>
+
+      <div class="applicants-form-item">
+        <label for="CountryOfOrigin">Country Of Origin
+          <input type="text" class="form-control" id="CountryOfOrigin" value.bind="activeApplicant.countryOfOrigin & validate">
+        </label>
+      </div>
+
+      <div class="applicants-form-item">
+        <label for="Age">Age
+          <input type="number" class="form-control" id="Age" value.bind="activeApplicant.age & validate">
+        </label>
+      </div>
+
+      <div class="applicants-form-item">
+        <label for="Hired">Hired
+          <input type="checkbox" class="form-control" id="Hired" checked.bind="activeApplicant.hired">
+        </label>
+      </div>
+    </form>
+    <div class="applicants-button">
+        <button click.delegate="save()" disabled.bind="!canSave" class="applicants-save">
+          <i class="fas fa-save"></i>
+          Save
+        </button>
+        <a class="applicants-cancel" href="#" route-href="route: applicants;" disabled.bind="!canSave">Cancel</a>
+    </div>
+  </div>
+
+  <a route-href="route: home;" class="applicants-return"><i class="fas fa-chevron-left"></i> Home</a>
+</template>
+      
+    
+      

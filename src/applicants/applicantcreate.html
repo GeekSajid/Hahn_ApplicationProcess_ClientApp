@@ -1,0 +1,51 @@
+<template>
+  <require from="../styles/applicants.css"></require>
+  <require from="../styles/applicantdetail.css"></require>
+  <div class="applicants">
+    <h2>Add new applicant</h2>
+    <form action="" class="applicants-form">
+      <div class="applicants-form-item" validation-errors.bind="nameErrors">       
+        <label for="name">First Name
+          <input type="text" class="form-control" id="name" change.delegate="checkInputs()" value.bind="applicant.name & validate" required>
+        </label>
+        <strong repeat.for="errorInfo of nameErrors">${errorInfo.error.message}</strong>
+      </div>
+      <div class="applicants-form-item" validation-errors.bind="familyNameErrors">       
+        <label for="familyName">Family Name
+          <input type="text" class="form-control" id="familyName" change.delegate="checkInputs()" value.bind="applicant.familyName & validate">
+        </label>
+        <strong repeat.for="errorInfo of familyNameErrors">${errorInfo.error.message}</strong>
+      </div>
+      <div class="applicants-form-item" validation-errors.bind="emailAddressErrors">      
+        <label for="emailAddress">Email
+          <input type="text" class="form-control" id="emailAddress" change.delegate="checkInputs()" value.bind="applicant.emailAddress & validate">
+        </label>
+        <strong repeat.for="errorInfo of emailAddressErrors">${errorInfo.error.message}</strong>
+      </div>
+      <div class="applicants-form-item" validation-errors.bind="addressErrors">       
+        <label for="address">Address
+          <input type="text" class="form-control" id="address" change.delegate="checkInputs()" value.bind="applicant.address & validate">
+        </label>
+        <strong repeat.for="errorInfo of addressErrors">${errorInfo.error.message}</strong>
+      </div>
+      <div class="applicants-form-item" validation-errors.bind="countryOfOriginErrors">       
+        <label for="countryOfOrigin">Country Of Origin
+          <input type="text" class="form-control" id="countryOfOrigin" change.delegate="checkInputs()" value.bind="applicant.countryOfOrigin & validate">
+        </label>
+        <strong repeat.for="errorInfo of countryOfOriginErrors">${errorInfo.error.message}</strong>
+      </div>
+      <div class="applicants-form-item" validation-errors.bind="ageErrors">       
+        <label for="age">Age
+          <input type="number" class="form-control" id="age" change.delegate="checkInputs()" value.bind="applicant.age & validate">
+        </label>
+        <strong repeat.for="errorInfo of ageErrors">${errorInfo.error.message}</strong>
+      </div>
+
+      <div class="applicants-button">
+        <button type="text" class="applicants-save" click.delegate="create()" disabled.bind="!canSave">Create</button>
+        <button type="reset" class="applicants-cancel"  click.delegate="reset()" disabled.bind="!canReset">Reset</button>
+      </div>
+    </form>
+  </div>
+  <a route-href="route: home;" class="applicants-return"><i class="fas fa-chevron-left"></i> Home</a>
+</template>
